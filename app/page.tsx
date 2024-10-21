@@ -8,15 +8,13 @@ export default async function Home() {
   if (!session) return redirect("/api/auth/signin");
   return (
     <>
-      <Center>
-        <h1>🎉 Welcome to the Teaching Learning System! 🎉</h1>
-        <p>
-          🚀 Our platform is currently under development, and we are excited to
-          bring you new features soon. Stay tuned! 🚀
-        </p>
-        <p>💡 Get ready to explore a world of knowledge and innovation. 💡</p>
-        <p>📚 Happy Learning! 📚</p>
-      </Center>
+      <h1>🎉 Welcome to the Teaching Learning System! 🎉</h1>
+      <p>
+        🚀 Our platform is currently under development, and we are excited to
+        bring you new features soon. Stay tuned! 🚀
+      </p>
+      <p>💡 Get ready to explore a world of knowledge and innovation. 💡</p>
+      <p>📚 Happy Learning! 📚</p>
       <Center>
         <form
           action={async () => {
