@@ -1,20 +1,8 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
 import "@mantine/core/styles.css";
-import { ColorSchemeScript, Flex, MantineProvider } from "@mantine/core";
+import "./globals.css";
+import { MantineProvider } from "@mantine/core";
 import NavBar from "./components/NavBar";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,17 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <ColorSchemeScript />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <MantineProvider>
-          <Flex>
+      <body>
+        <MantineProvider defaultColorScheme="auto">
+          <div className="flex gap-4">
             <NavBar />
             <div>{children}</div>
-          </Flex>
+          </div>
         </MantineProvider>
       </body>
     </html>
