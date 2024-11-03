@@ -1,5 +1,5 @@
 import { auth, signOut } from "@/lib/auth";
-import { Button, Center } from "@mantine/core";
+import { Center } from "@mantine/core";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
