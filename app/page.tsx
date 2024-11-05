@@ -1,35 +1,65 @@
-import { auth, signOut } from "@/lib/auth";
-import { Center } from "@mantine/core";
-import { redirect } from "next/navigation";
+import { ColorSchemesSwitcher } from "@/components/color-schemes-switcher";
+import {
+  AppShell,
+  AppShellHeader,
+  AppShellMain,
+  Group,
+  Text,
+  Title,
+} from "@mantine/core";
+import Image from "next/image";
 
-export default async function Home() {
-  const session = await auth();
-  // If user is not authenticated, show built in login page from authjs
-  if (!session) return redirect("/api/auth/signin");
+export default function Home() {
   return (
-    <>
-      <h1>🎉 Welcome to the Teaching Learning System! 🎉</h1>
-      <p>
-        🚀 Our platform is currently under development, and we are excited to
-        bring you new features soon. Stay tuned! 🚀
-      </p>
-      <p>💡 Get ready to explore a world of knowledge and innovation. 💡</p>
-      <p>📚 Happy Learning! 📚</p>
-      <Center>
-        <form
-          action={async () => {
-            "use server";
-            await signOut();
-          }}
-        >
-          <button
-            className="bg-blue-500 rounded px-4 py-2 text-white"
-            type="submit"
+    <AppShell header={{ height: 60 }} padding="md">
+      <AppShellHeader>
+        <Group className="h-full px-md">
+          <Image
+            className="dark:invert"
+            src="https://nextjs.org/icons/next.svg"
+            alt="logo"
+            width={100}
+            height={100}
+          />
+        </Group>
+      </AppShellHeader>
+      <AppShellMain>
+        <Title className="text-center mt-20">
+          Welcome to{" "}
+          <Text
+            inherit
+            variant="gradient"
+            component="span"
+            gradient={{ from: "pink", to: "yellow" }}
           >
-            Sign Out
-          </button>
-        </form>
-      </Center>
-    </>
+            Mantine
+          </Text>{" "}
+          +
+          <Text
+            inherit
+            variant="gradient"
+            component="span"
+            gradient={{ from: "blue", to: "green" }}
+          >
+            TailwindCSS
+          </Text>
+        </Title>
+        <Text
+          className="text-center text-gray-700 dark:text-gray-300 max-w-[500px] mx-auto mt-xl"
+          ta="center"
+          size="lg"
+          maw={580}
+          mx="auto"
+          mt="xl"
+        >
+          This starter Next.js project includes a minimal setup for Mantine with
+          TailwindCSS. To get started edit page.tsx file.
+        </Text>
+
+        <div className="flex justify-center mt-10">
+          <ColorSchemesSwitcher />
+        </div>
+      </AppShellMain>
+    </AppShell>
   );
 }
