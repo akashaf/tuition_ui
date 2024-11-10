@@ -9,6 +9,8 @@ import {
 import localFont from "next/font/local";
 import Head from "next/head";
 import "./globals.css";
+import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
+import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
 import { breakpoints, colors } from "./theme";
 import MainLayout from "@/components/MainLayout";
 
