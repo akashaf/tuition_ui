@@ -1,6 +1,6 @@
 'use client';
 
-import { AppShell, Burger, Group, Skeleton, ThemeIcon, Title } from '@mantine/core';
+import { AppShell, Burger, Group, Skeleton, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
 export default function MainLayout({
