@@ -1,27 +1,18 @@
-import { ColorSchemesSwitcher } from "@/components/color-schemes-switcher";
-import { Text, Title } from "@mantine/core";
+import { Card, SimpleGrid, Stack, Text, Title } from "@mantine/core";
+import UpcomingClassSection from "@/components/dashboard/UpcomingClassSection";
 
 export default function Home() {
   return (
     <>
       <Title className="text-center mt-20">
-        Welcome to{" "}
+        <span className="text-gray-700 dark:text-gray-300">Welcome to{" "}</span>
         <Text
           inherit
           variant="gradient"
           component="span"
-          gradient={{ from: "pink", to: "yellow" }}
+          gradient={{ from: "pink", to: "black" }}
         >
-          Mantine
-        </Text>{" "}
-        +
-        <Text
-          inherit
-          variant="gradient"
-          component="span"
-          gradient={{ from: "blue", to: "green" }}
-        >
-          TailwindCSS
+          Geliga
         </Text>
       </Title>
       <Text
@@ -32,13 +23,25 @@ export default function Home() {
         mx="auto"
         mt="xl"
       >
-        This starter Next.js project includes a minimal setup for Mantine with
-        TailwindCSS. To get started edit page.tsx file.
+        Geliga is a platform for learning and teaching online. We provide
+        high-quality courses for students and teachers.
       </Text>
 
-      <div className="flex justify-center mt-10">
-        <ColorSchemesSwitcher />
-      </div>
+      <Stack>
+        <SimpleGrid
+          cols={{
+            xs: 1,
+            md: 3,
+          }}
+        >
+          {Array(3)
+            .fill(0)
+            .map((_, index) => (
+              <Card key={index}>Statistic {index + 1}</Card>
+            ))}
+        </SimpleGrid>
+        <UpcomingClassSection />
+      </Stack>
     </>
   );
 }
