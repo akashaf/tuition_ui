@@ -5,34 +5,26 @@ import {
   MantineProvider,
   mergeMantineTheme,
 } from "@mantine/core";
-import localFont from "next/font/local";
+import {Fira_Code} from "next/font/google";
 import "./globals.css";
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
 import { breakpoints, colors } from "./theme";
 import MainLayout from "@/components/layout";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const firaCode = Fira_Code({
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Next App Mantine Tailwind Template",
-  description: "Next App Mantine Tailwind Template",
+  title: "Geliga App",
+  description: "Geliga App",
 };
 
 const theme = mergeMantineTheme(
   DEFAULT_THEME,
   createTheme({
-    fontFamily: geistSans.style.fontFamily,
-    fontFamilyMonospace: geistMono.style.fontFamily,
+    fontFamily: firaCode.style.fontFamily,
     breakpoints,
     colors,
   }),

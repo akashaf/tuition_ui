@@ -18,7 +18,12 @@ export default function Navbar() {
       <>
         {links.map((link, idx) => (
           <Stack key={idx}>
-            <NavLink component={Link} href={link.url} label={link.label} disabled={link.disabled} />
+            <NavLink
+              component={Link}
+              href={link.url}
+              label={link.label}
+              disabled={link.disabled}
+            />
           </Stack>
         ))}
       </>
