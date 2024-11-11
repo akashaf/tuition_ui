@@ -1,7 +1,8 @@
 'use client';
 
-import { AppShell, Burger, Group, Skeleton, Title } from '@mantine/core';
+import { AppShell, Burger, Group, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import Navbar from './Navbar';
 
 export default function MainLayout({
   children,
@@ -13,7 +14,7 @@ export default function MainLayout({
   return (
     <AppShell
       header={{ height: 60 }}
-      navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: !opened } }}
+      navbar={{ width: 300, breakpoint: "sm", collapsed: { mobile: !opened } }}
       padding="md"
     >
       <AppShell.Header>
@@ -23,12 +24,7 @@ export default function MainLayout({
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">
-        Navbar
-        {Array(15)
-          .fill(0)
-          .map((_, index) => (
-            <Skeleton key={index} h={28} mt="sm" animate={false} />
-          ))}
+        <Navbar />
       </AppShell.Navbar>
       <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
