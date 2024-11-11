@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import {
-  ColorSchemeScript,
   createTheme,
   DEFAULT_THEME,
   MantineProvider,
   mergeMantineTheme,
 } from "@mantine/core";
 import localFont from "next/font/local";
-import Head from "next/head";
 import "./globals.css";
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
 import { breakpoints, colors } from "./theme";
-import MainLayout from "@/components/MainLayout";
+import MainLayout from "@/components/layout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -40,6 +38,7 @@ const theme = mergeMantineTheme(
   }),
 );
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -47,9 +46,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        <ColorSchemeScript />
-      </Head>
       <body className="antialiased">
         <MantineProvider theme={theme}>
           <MainLayout>{children}</MainLayout>
