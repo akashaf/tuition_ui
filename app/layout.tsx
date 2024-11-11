@@ -6,9 +6,9 @@ import {
   mergeMantineTheme,
 } from "@mantine/core";
 import {Fira_Code} from "next/font/google";
-import "./globals.css";
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
+import "./globals.css";
 import { breakpoints, colors } from "./theme";
 import MainLayout from "@/components/layout";
 

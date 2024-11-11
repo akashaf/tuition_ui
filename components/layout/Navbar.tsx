@@ -1,5 +1,6 @@
 import { NavLink, Stack } from "@mantine/core";
 import Link from "next/link";
+import { ColorSchemesSwitcher } from "../color-schemes-switcher";
 
 export default function Navbar() {
   const links = [
@@ -16,15 +17,17 @@ export default function Navbar() {
   ];
     return (
       <>
-        {links.map((link, idx) => (
-          <Stack key={idx}>
+        <Stack>
+          {links.map((link, idx) => (
             <NavLink
+              key={idx}
               component={Link}
               href={link.url}
               label={link.label}
               disabled={link.disabled}
             />
-          </Stack>
-        ))}
+          ))}
+          <ColorSchemesSwitcher />
+        </Stack>
       </>
     );}
