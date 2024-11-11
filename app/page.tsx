@@ -1,5 +1,5 @@
 import { ColorSchemesSwitcher } from "@/components/color-schemes-switcher";
-import { Text, Title } from "@mantine/core";
+import { Card, SimpleGrid, Stack, Text, Title } from "@mantine/core";
 
 export default function Home() {
   return (
@@ -36,9 +36,23 @@ export default function Home() {
         TailwindCSS. To get started edit page.tsx file.
       </Text>
 
-      <div className="flex justify-center mt-10">
-        <ColorSchemesSwitcher />
-      </div>
+      <Stack>
+        <div className="flex justify-center mt-10">
+          <ColorSchemesSwitcher />
+        </div>
+        <SimpleGrid
+          cols={{
+            xs: 1,
+            md: 3,
+          }}
+        >
+          {Array(3)
+            .fill(0)
+            .map((_, index) => (
+              <Card key={index}>Statistic {index + 1}</Card>
+            ))}
+        </SimpleGrid>
+      </Stack>
     </>
   );
 }
