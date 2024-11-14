@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Title className="text-center mt-20">
-        <span className="text-gray-700 dark:text-gray-300">Welcome to{" "}</span>
+        <span className="text-gray-700 dark:text-gray-300">Welcome to </span>
         <Text
           inherit
           variant="gradient"
@@ -37,7 +37,14 @@ export default function Home() {
           {Array(3)
             .fill(0)
             .map((_, index) => (
-              <Card key={index}>Statistic {index + 1}</Card>
+              <Card classNames={{
+                root: 'text-center'
+              }} key={index} shadow="sm" padding="lg" radius="md" withBorder>
+                <Stack>
+                  <Text fw={500}>Statistic {index + 1}</Text>
+                  <Text>{Math.floor(Math.random() * 100)}</Text>
+                </Stack>
+              </Card>
             ))}
         </SimpleGrid>
         <UpcomingClassSection />
