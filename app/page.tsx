@@ -2,6 +2,7 @@ import { Card, SimpleGrid, Stack, Text, Title } from "@mantine/core";
 import UpcomingClassSection from "@/components/dashboard/UpcomingClassSection";
 
 export default function Home() {
+  const serverCalc = Math.floor(Math.random() * 100);
   return (
     <>
       <Title className="text-center mt-20">
@@ -29,6 +30,9 @@ export default function Home() {
 
       <Stack>
         <SimpleGrid
+         classNames={{
+          root: 'mt-4'
+         }}
           cols={{
             xs: 1,
             md: 3,
@@ -38,11 +42,11 @@ export default function Home() {
             .fill(0)
             .map((_, index) => (
               <Card classNames={{
-                root: 'text-center'
+                root: 'text-center hover:motion-scale-in-[0.79] hover:motion-scale-in-delay-75 hover:cursor-pointer'
               }} key={index} shadow="sm" padding="lg" radius="md" withBorder>
                 <Stack>
                   <Text fw={500}>Statistic {index + 1}</Text>
-                  <Text>{Math.floor(Math.random() * 100)}</Text>
+                  <Text>{serverCalc}</Text>
                 </Stack>
               </Card>
             ))}

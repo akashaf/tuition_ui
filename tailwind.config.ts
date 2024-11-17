@@ -13,6 +13,6 @@ const config: Config = {
       mantineColors: colors,
     }),
   ],
-  plugins: [],
+  plugins: [require('tailwindcss-motion')],
 };
 export default config;
