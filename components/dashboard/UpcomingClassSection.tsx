@@ -1,41 +1,54 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
-
+import { Text, Title } from "@mantine/core";
 import { format } from "date-fns";
 import { DataTable } from "mantine-datatable";
 
 export default function UpcomingClassSection() {
-  const datas = Array.from({ length: 50 }, (_, index) => ({
-    uuid: crypto.randomUUID(),
-    subject: `Subject ${index + 1}`,
-    no_of_students: Math.floor(Math.random() * 30) + 1,
-    date_and_time: format(
-      new Date(Date.now() + index * 1000 * 60 * 60 * 24),
-      "yyyy-MM-dd hh:mm a",
-    ),
-  }));
-  
+  const datas = Array(5)
+    .fill(0)
+    .map((_, index) => ({
+      id: crypto.randomUUID(),
+      date_and_time: format(new Date(), "do MMMM yyyy, hh:mm a"),
+      subject: `Subject ${index + 1}`,
+      status: "Upcoming",
+      no_of_students: Math.floor(Math.random() * 100),
+    }));
+
+    const columns = [
+      { accessor: "id", hidden: true },
+      { accessor: "subject" },
+      { accessor: "no_of_students" },
+      { accessor: "date_and_time" },
+      {
+        accessor: "status",
+      },
+    ];
+
   return (
-    <DataTable
-      withTableBorder
-      withColumnBorders
-      records={datas}
-      columns={[
-        {
-          accessor: "uuid",
-          hidden: true,
-        },
-        {
-          accessor: "subject",
-        },
-        {
-          accessor: "no_of_students",
-        },
-        {
-          accessor: "date_and_time",
-        },
-      ]}
-    />
+    <>
+      <Title classNames={{
+        root: 'mt-4'
+      }}>
+        <Text className="text-gray-700 dark:text-gray-300 font-semibold">
+          Upcoming Classes
+        </Text>
+      </Title>
+      <DataTable
+        shadow="lg"
+        withTableBorder
+        borderRadius="sm"
+        withColumnBorders
+        highlightOnHover
+        horizontalSpacing="md"
+        verticalSpacing="md"
+        records={datas}
+        columns={columns}
+        defaultColumnProps={{
+          titleClassName: "text-center font-semibold uppercase",
+          noWrap: true,
+        }}
+      />
+    </>
   );
 }
