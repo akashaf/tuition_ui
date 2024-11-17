@@ -12,7 +12,7 @@ export default function Navbar() {
     {
       label: "Classes",
       url: "/classes",
-      disabled: true,
+      disabled: false,
     },
   ];
     return (
