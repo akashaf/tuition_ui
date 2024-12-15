@@ -7,12 +7,15 @@ export default function Navbar() {
     {
       label: "Dashboard",
       url: "/",
-      disabled: false,
     },
     {
       label: "Classes",
       url: "/classes",
-      disabled: false,
+    },
+    {
+      label: "Settings",
+      url: "/settings",
+      disabled: true,
     },
   ];
     return (
@@ -24,7 +27,7 @@ export default function Navbar() {
               component={Link}
               href={link.url}
               label={link.label}
-              disabled={link.disabled}
+              disabled={link.disabled ?? false}
             />
           ))}
           <ColorSchemesSwitcher />
